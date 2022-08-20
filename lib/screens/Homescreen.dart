@@ -181,8 +181,24 @@ class HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         trailing: Icon(Icons.chat, color: AppColors.cardLight),
                       )
                     : Container(),
+                SizedBox(
+                  height: size.height / 2,
+                ),
+                Container(
+                  // width: size.width / 2,
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    "Made with ❤ by Saransh Bibiyan",
+                    style: TextStyle(
+                      color: primColors.primary,
+                      fontSize: size.height / 45,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
               ],
             ),
+
       // floatingActionButton: FloatingActionButton(
       //   child: Icon(Icons.group),
       //   onPressed: () => Navigator.of(context).push(

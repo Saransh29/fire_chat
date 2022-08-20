@@ -102,11 +102,26 @@ class _CreateAccountState extends State<CreateAccount> {
                         style: TextStyle(
                           color: AppColors.cardLight,
                           fontSize: 16,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: size.height / 10,
+                  ),
+                  Container(
+                    // width: size.width / 2,
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Made with ❤ by Saransh Bibiyan",
+                      style: TextStyle(
+                        color: primColors.primary,
+                        fontSize: size.height / 45,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
