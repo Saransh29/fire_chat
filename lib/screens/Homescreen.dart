@@ -85,7 +85,9 @@ class HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: primColors.back,
       appBar: AppBar(
+        backgroundColor: primColors.accent,
         title: Text("Home Screen"),
         actions: [
           IconButton(icon: Icon(Icons.logout), onPressed: () => logOut(context))
@@ -127,14 +129,27 @@ class HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                 ),
                 ElevatedButton(
                   onPressed: onSearch,
-                  child: Text("Search"),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Search",
+                      style: TextStyle(
+                          color: AppColors.textDark,
+                          fontWeight: FontWeight.bold,
+                          fontSize: size.height / 45),
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: primColors.lightprim,
+                  ),
                 ),
                 SizedBox(
                   height: size.height / 30,
                 ),
                 userMap != null
                     ? ListTile(
-                        tileColor: AppColors.textFaded,
+                        tileColor: primColors.accent,
+                        hoverColor: AppColors.textFaded,
                         onTap: () {
                           String roomId = chatRoomId(
                               _auth.currentUser!.displayName!,
@@ -149,17 +164,21 @@ class HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                             ),
                           );
                         },
-                        leading: Icon(Icons.account_box, color: Colors.black),
+                        leading:
+                            Icon(Icons.account_box, color: AppColors.cardLight),
                         title: Text(
                           userMap!['name'],
                           style: TextStyle(
-                            color: Colors.black,
+                            color: AppColors.cardLight,
                             fontSize: 17,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        subtitle: Text(userMap!['email']),
-                        trailing: Icon(Icons.chat, color: Colors.black),
+                        subtitle: Text(
+                          userMap!['email'],
+                          style: TextStyle(color: AppColors.cardLight),
+                        ),
+                        trailing: Icon(Icons.chat, color: AppColors.cardLight),
                       )
                     : Container(),
               ],

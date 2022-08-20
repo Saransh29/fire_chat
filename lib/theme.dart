@@ -14,6 +14,16 @@ abstract class AppColors {
   static const cardDark = Color(0xFF303334);
 }
 
+abstract class primColors {
+  static const white = Color(0xEEEEEE);
+  static const primary = Color.fromARGB(255, 9, 204, 215);
+  static const lightprim = Color.fromARGB(255, 113, 201, 206);
+  static const lighterprim = Color.fromARGB(255, 166, 227, 233);
+  static const secondary = Color(0xFF3B76F6);
+  static const accent = Color.fromARGB(255, 57, 62, 70);
+  static const back = Color.fromARGB(255, 34, 40, 49);
+}
+
 abstract class _LightColors {
   static const background = Colors.white;
   static const card = AppColors.cardLight;
@@ -34,8 +44,8 @@ abstract class AppTheme {
         brightness: Brightness.light,
         accentColor: accentColor,
         visualDensity: visualDensity,
-        textTheme: GoogleFonts.mulishTextTheme()
-            .apply(bodyColor: AppColors.textDark),
+        textTheme:
+            GoogleFonts.mulishTextTheme().apply(bodyColor: AppColors.textDark),
         backgroundColor: _LightColors.background,
         scaffoldBackgroundColor: _LightColors.background,
         cardColor: _LightColors.card,
@@ -50,8 +60,8 @@ abstract class AppTheme {
         brightness: Brightness.dark,
         accentColor: accentColor,
         visualDensity: visualDensity,
-        textTheme: GoogleFonts.interTextTheme()
-            .apply(bodyColor: AppColors.textLigth),
+        textTheme:
+            GoogleFonts.interTextTheme().apply(bodyColor: AppColors.textLigth),
         backgroundColor: _DarkColors.background,
         scaffoldBackgroundColor: _DarkColors.background,
         cardColor: _DarkColors.card,

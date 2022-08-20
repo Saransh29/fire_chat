@@ -1,3 +1,5 @@
+import 'package:chat_app_firebase/theme.dart';
+
 import 'auth.dart';
 import 'package:flutter/material.dart';
 import '../screens/screens.dart';
@@ -15,10 +17,10 @@ class _CreateAccountState extends State<CreateAccount> {
 
   @override
   Widget build(BuildContext context) {
-
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: primColors.back,
       body: isLoading
           ? Center(
               child: Container(
@@ -55,7 +57,7 @@ class _CreateAccountState extends State<CreateAccount> {
                   Container(
                     width: size.width / 1.1,
                     child: Text(
-                      "Create Account to Contiue!",
+                      "Create Account to Continue!",
                       style: TextStyle(
                         color: Colors.grey[700],
                         fontSize: 20,
@@ -98,9 +100,9 @@ class _CreateAccountState extends State<CreateAccount> {
                       child: Text(
                         "Login",
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: AppColors.cardLight,
                           fontSize: 16,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
@@ -129,8 +131,7 @@ class _CreateAccountState extends State<CreateAccount> {
               Navigator.push(
                   context, MaterialPageRoute(builder: (_) => HomeScreen()));
               print("Account Created Sucessfull");
-            } 
-            else {
+            } else {
               print("Login Failed");
               setState(() {
                 isLoading = false;
@@ -146,7 +147,7 @@ class _CreateAccountState extends State<CreateAccount> {
           width: size.width / 1.2,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
-            color: Colors.blue,
+            color: primColors.primary,
           ),
           alignment: Alignment.center,
           child: Text(
@@ -167,6 +168,8 @@ class _CreateAccountState extends State<CreateAccount> {
       width: size.width / 1.1,
       child: TextField(
         controller: cont,
+        obscureText: hintText == "password" ? true : false,
+        obscuringCharacter: "*",
         decoration: InputDecoration(
           prefixIcon: Icon(icon),
           hintText: hintText,

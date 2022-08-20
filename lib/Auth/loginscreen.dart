@@ -1,3 +1,5 @@
+import 'package:chat_app_firebase/theme.dart';
+
 import '../screens/screens.dart';
 import 'auth.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: primColors.back,
       body: isLoading
           ? Center(
               child: Container(
@@ -38,31 +41,40 @@ class _LoginScreenState extends State<LoginScreen> {
                         icon: Icon(Icons.arrow_back_ios), onPressed: () {}),
                   ),
                   SizedBox(
-                    height: size.height / 50,
+                    height: size.height / 35,
                   ),
                   Container(
-                    width: size.width / 1.1,
-                    child: Text(
-                      "Welcome",
-                      style: TextStyle(
-                        fontSize: 34,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    alignment: Alignment.topCenter,
+                    height: size.height / 4,
+                    // width: size.width / 1.1,
+                    child: Image.asset(
+                      "assets/images/img.png",
+                      fit: BoxFit.cover,
                     ),
                   ),
-                  Container(
-                    width: size.width / 1.1,
-                    child: Text(
-                      "Sign In to Contiue!",
-                      style: TextStyle(
-                        color: Colors.grey[700],
-                        fontSize: 25,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
+                  // Container(
+                  //   width: size.width / 1.11,
+                  //   child: Text(
+                  //     "Welcome",
+                  //     style: TextStyle(
+                  //       fontSize: 34,
+                  //       fontWeight: FontWeight.bold,
+                  //     ),
+                  //   ),
+                  // ),
+                  // Container(
+                  //   width: size.width / 1.11,
+                  //   child: Text(
+                  //     "Sign In to Contiue!",
+                  //     style: TextStyle(
+                  //       color: Colors.grey[700],
+                  //       fontSize: 25,
+                  //       fontWeight: FontWeight.w500,
+                  //     ),
+                  //   ),
+                  // ),
                   SizedBox(
-                    height: size.height / 10,
+                    height: size.height / 40,
                   ),
                   Container(
                     width: size.width,
@@ -90,12 +102,27 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: const Text(
                       "Create Account",
                       style: TextStyle(
-                        color: Colors.blue,
+                        color: primColors.primary,
                         fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: size.height / 10,
+                  ),
+                  Container(
+                    // width: size.width / 2,
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Made with ❤ by Saransh Bibiyan",
+                      style: TextStyle(
+                        color: primColors.primary,
+                        fontSize: size.height / 45,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -118,8 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
               });
               Navigator.push(
                   context, MaterialPageRoute(builder: (_) => HomeScreen()));
-            } 
-            else {
+            } else {
               print("Login Failed");
               setState(() {
                 isLoading = false;
@@ -135,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
         width: size.width / 1.2,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
-          color: Colors.blue,
+          color: primColors.primary,
         ),
         alignment: Alignment.center,
         child: Text(
@@ -157,6 +183,8 @@ class _LoginScreenState extends State<LoginScreen> {
       width: size.width / 1.1,
       child: TextField(
         controller: cont,
+        obscureText: hintText == "password" ? true : false,
+        obscuringCharacter: "*",
         decoration: InputDecoration(
           prefixIcon: Icon(icon),
           hintText: hintText,

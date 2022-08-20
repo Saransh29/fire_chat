@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:uuid/uuid.dart';
 
+import '../theme.dart';
+
 class ChatRoom extends StatelessWidget {
   final Map<String, dynamic> userMap;
   final String chatRoomId;
@@ -99,6 +101,7 @@ class ChatRoom extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: primColors.back,
       appBar: AppBar(
         title: StreamBuilder<DocumentSnapshot>(
           stream:
@@ -193,24 +196,29 @@ class ChatRoom extends StatelessWidget {
 
   Widget messages(Size size, Map<String, dynamic> map, BuildContext context) {
     return map['type'] == "text"
-        ? Container(
-            width: size.width,
-            alignment: map['sendby'] == _auth.currentUser!.displayName
-                ? Alignment.centerRight
-                : Alignment.centerLeft,
+        ? Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
             child: Container(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 14),
-              margin: EdgeInsets.symmetric(vertical: 5, horizontal: 8),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Colors.blue,
-              ),
-              child: Text(
-                map['message'],
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white,
+              width: size.width,
+              alignment: map['sendby'] == _auth.currentUser!.displayName
+                  ? Alignment.centerRight
+                  : Alignment.centerLeft,
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 12, horizontal: 14),
+                margin: EdgeInsets.symmetric(vertical: 5, horizontal: 8),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: map['sendby'] == _auth.currentUser!.displayName
+                      ? primColors.accent
+                      : Color.fromARGB(200, 33, 149, 243),
+                ),
+                child: Text(
+                  map['message'],
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
