@@ -1,16 +1,12 @@
-# chat_app_firebase
+Firechat App
 
-A new Flutter project.
+This is a flutter based modern messaging app where users can sign up and log in to chat with their friends, family, colleagues among groups with enriched User-Experience.
 
-## Getting Started
+It uses Firebase Databse for user Authentication and Real time Cloud Messaging.
 
-This project is a starting point for a Flutter application.
+One of the first simple apps I created while on my journey to learn flutter.
 
-A few resources to get you started if this is your first Flutter project:
+Download APK
+https://github.com/Saransh29/fire_chat/blob/master/apk/v1-2.apk
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Demo
