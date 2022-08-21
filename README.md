@@ -9,7 +9,7 @@ One of the first simple apps I created while on my journey to learn flutter.
 Download APK
 https://github.com/Saransh29/fire_chat/blob/master/apk/v(1.3).apk
 
-Deplyoed on web-
+Deployed on web-
 https://www.fire-chat.tech/
 
 Screenshots
