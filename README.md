@@ -10,7 +10,7 @@ Download APK
 https://github.com/Saransh29/fire_chat/blob/master/apk/v(1.3).apk
 
 Deplyoed on web-
-https://firechat-web.pages.dev/#/
+https://www.fire-chat.tech/
 
 Screenshots
 
