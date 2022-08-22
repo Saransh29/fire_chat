@@ -12,6 +12,12 @@ https://github.com/Saransh29/fire_chat/blob/master/apk/v(1.3).apk
 Deployed on web-
 https://www.fire-chat.tech/
 
+Production Build-
+https://firechat-web.pages.dev/
+
+Testing Build-
+https://testing.firechat-web.pages.dev/
+
 Screenshots
 
 <p float="left">
