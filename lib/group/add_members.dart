@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:chat_app_firebase/theme.dart';
 
 class AddMembersINGroup extends StatefulWidget {
   final String groupChatId, name;
@@ -67,8 +68,10 @@ class _AddMembersINGroupState extends State<AddMembersINGroup> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: primColors.back,
       appBar: AppBar(
         title: Text("Add Members"),
+        backgroundColor: primColors.accent,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -108,13 +111,24 @@ class _AddMembersINGroupState extends State<AddMembersINGroup> {
                 : ElevatedButton(
                     onPressed: onSearch,
                     child: Text("Search"),
+                    style: ElevatedButton.styleFrom(
+                      primary: primColors.accent,
+                      onPrimary: primColors.primary,
+
+                      // overlayColor: MaterialStateProperty.,
+                      // foregroundColor:
+                      //     MaterialStateProperty.all(primColors.back),
+                      // backgroundColor:
+                      //     MaterialStateProperty.all(primColors.primary),
+                    ),
                   ),
             userMap != null
                 ? ListTile(
                     onTap: onAddMembers,
                     leading: Icon(Icons.account_box),
                     title: Text(userMap!['name']),
-                    subtitle: Text(userMap!['email']),
+                    subtitle: Text(userMap!['email'],
+                        style: TextStyle(color: AppColors.cardLight)),
                     trailing: Icon(Icons.add),
                   )
                 : SizedBox(),

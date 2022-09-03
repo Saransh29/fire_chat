@@ -2,6 +2,7 @@ import './gc_info.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:chat_app_firebase/theme.dart';
 
 class GroupChatRoom extends StatelessWidget {
   final String groupChatId, groupName;
@@ -37,8 +38,10 @@ class GroupChatRoom extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: primColors.back,
       appBar: AppBar(
         title: Text(groupName),
+        backgroundColor: primColors.accent,
         actions: [
           IconButton(
               onPressed: () => Navigator.of(context).push(
@@ -134,12 +137,18 @@ class GroupChatRoom extends StatelessWidget {
               margin: EdgeInsets.symmetric(vertical: 5, horizontal: 8),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Colors.blue,
+                color: chatMap['sendby'] == _auth.currentUser!.displayName
+                    ? primColors.accent
+                    : Color.fromARGB(200, 33, 149, 243),
               ),
               child: Column(
                 children: [
                   Text(
                     chatMap['sendBy'],
+                    textAlign:
+                        chatMap['sendby'] == _auth.currentUser!.displayName
+                            ? TextAlign.right
+                            : TextAlign.left,
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w500,

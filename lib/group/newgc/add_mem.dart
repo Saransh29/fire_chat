@@ -2,6 +2,7 @@ import './create_gc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:chat_app_firebase/theme.dart';
 
 class AddMembersInGroup extends StatefulWidget {
   const AddMembersInGroup({Key? key}) : super(key: key);
@@ -95,8 +96,12 @@ class _AddMembersInGroupState extends State<AddMembersInGroup> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: primColors.back,
+
       appBar: AppBar(
         title: Text("Add Members"),
+        backgroundColor: primColors.accent,
+
       ),
       body: SingleChildScrollView(
         child: Column(

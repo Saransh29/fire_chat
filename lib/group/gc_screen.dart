@@ -3,6 +3,7 @@ import 'gc_room.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:chat_app_firebase/theme.dart';
 
 class GroupChatHomeScreen extends StatefulWidget {
   const GroupChatHomeScreen({Key? key}) : super(key: key);
@@ -45,8 +46,10 @@ class _GroupChatHomeScreenState extends State<GroupChatHomeScreen> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: primColors.back,
       appBar: AppBar(
         title: Text("Groups"),
+        backgroundColor: primColors.accent,
       ),
       body: isLoading
           ? Container(
@@ -73,7 +76,11 @@ class _GroupChatHomeScreenState extends State<GroupChatHomeScreen> {
               },
             ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.create),
+        child: Icon(
+          Icons.create,
+          color: primColors.primary,
+        ),
+        backgroundColor: primColors.back,
         onPressed: () => Navigator.of(context).push(
           MaterialPageRoute(
             builder: (_) => AddMembersInGroup(),

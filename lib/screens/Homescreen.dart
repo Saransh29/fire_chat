@@ -6,6 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../group/gc_screen.dart';
 import './chats.dart';
 import 'chats.dart';
 import 'chats.dart';
@@ -27,6 +28,7 @@ class HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
+    // getchatrooms();
     WidgetsBinding.instance.addObserver(this);
     setStatus("Online");
   }
@@ -58,6 +60,24 @@ class HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       return "$user2$user1";
     }
   }
+
+  // List chatroomslist = [];
+
+  // void getchatrooms() async {
+  //   String uid = _auth.currentUser!.uid;
+
+  //   await _firestore
+  //       .collection('users')
+  //       .doc(uid)
+  //       .collection('chatroom')
+  //       .get()
+  //       .then((value) {
+  //     setState(() {
+  //       chatroomslist = value.docs;
+  //       isLoading = false;
+  //     });
+  //   });
+  // }
 
   //search function
   void onSearch() async {
@@ -115,6 +135,7 @@ class HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     width: size.width / 1.15,
                     child: TextField(
                       controller: _search,
+                      onSubmitted: (value) => onSearch(),
                       decoration: InputDecoration(
                         hintText: "Search",
                         border: OutlineInputBorder(
@@ -198,15 +219,15 @@ class HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                 ),
               ],
             ),
-
-      // floatingActionButton: FloatingActionButton(
-      //   child: Icon(Icons.group),
-      //   onPressed: () => Navigator.of(context).push(
-      //     MaterialPageRoute(
-      //       builder: (_) => GroupChatHomeScreen(),
-      //     ),
-      //   ),
-      // ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.group, color: primColors.primary),
+        backgroundColor: primColors.back,
+        onPressed: () => Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => GroupChatHomeScreen(),
+          ),
+        ),
+      ),
     );
   }
 }

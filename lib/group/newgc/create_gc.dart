@@ -1,3 +1,4 @@
+import 'package:chat_app_firebase/theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -60,8 +61,10 @@ class _CreateGroupState extends State<CreateGroup> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: primColors.back,
       appBar: AppBar(
         title: Text("Group Name"),
+        backgroundColor: primColors.accent,
       ),
       body: isLoading
           ? Container(

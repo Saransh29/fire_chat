@@ -1,3 +1,5 @@
+import 'package:chat_app_firebase/theme.dart';
+
 import '../Screens/Homescreen.dart';
 import './add_members.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -128,6 +130,8 @@ class _GroupInfoState extends State<GroupInfo> {
 
     return SafeArea(
       child: Scaffold(
+      backgroundColor: primColors.back,
+
         body: isLoading
             ? Container(
                 height: size.height,
@@ -243,7 +247,9 @@ class _GroupInfoState extends State<GroupInfo> {
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                            subtitle: Text(membersList[index]['email']),
+                            subtitle: Text(membersList[index]['email'] , style: TextStyle(
+                              color: AppColors.cardLight
+                            ),),
                             trailing: Text(
                                 membersList[index]['isAdmin'] ? "Admin" : ""),
                           );
